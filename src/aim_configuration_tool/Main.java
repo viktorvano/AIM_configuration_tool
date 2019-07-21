@@ -1,10 +1,7 @@
 package aim_configuration_tool;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
@@ -14,18 +11,14 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-
 
 public class Main extends Application {
 
     private int screenHeight; 
-    private int screenWidth;
-    private Button btnExit;
+    private int screenWidth;    
     public static ProgressIndicator pi;
-    public static Label lblStatus;
-    private Label lblAppName;
+    public static Label lblStatus;    
     private Label lblPlayers;
     private Label lblUserID;
     private Label lblRadio;
@@ -77,26 +70,15 @@ public class Main extends Application {
         javafx.scene.image.Image icon =  new javafx.scene.image.Image("images/icon.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setX(0);
-        primaryStage.setY(0);
+        primaryStage.setY(0);  
         
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();       
-        
-        screenHeight = screenSize.height;
-        screenWidth = screenSize.width;        
-        
-        btnExit = new Button();
-        btnExit.setText("X");
-        btnExit.setTextFill(Color.WHITE);
-        btnExit.setLayoutX(screenWidth-29);
-        btnExit.setLayoutY(0);
-        btnExit.setPrefSize(25,25);
-        btnExit.setStyle("-fx-background-color: red;");
-        btnExit.setOnAction(event -> System.exit(0));
+        screenHeight = 720;
+        screenWidth = 1300;
                 
         ImageView imageFacebook = new ImageView("images/facebook.png");
         imageFacebook.setPreserveRatio(true);
         imageFacebook.setX(screenWidth-105); 
-        imageFacebook.setY(400);
+        imageFacebook.setY(300);
         imageFacebook.setFitHeight(100); 
         imageFacebook.setFitWidth(100);
         imageFacebook.setOnMouseClicked(event -> VisitWebpage.facebook());
@@ -104,40 +86,40 @@ public class Main extends Application {
         ImageView imageYoutube = new ImageView("images/youtube.png");
         imageYoutube.setPreserveRatio(true);
         imageYoutube.setX(screenWidth-105); 
-        imageYoutube.setY(520);
+        imageYoutube.setY(420);
         imageYoutube.setFitHeight(100); 
         imageYoutube.setFitWidth(100);
         imageYoutube.setOnMouseClicked(event -> VisitWebpage.youtube());
         
         ImageView imageEshop = new ImageView("images/aim.png");
         imageEshop.setPreserveRatio(true);
-        imageEshop.setX(screenWidth-345); 
-        imageEshop.setY(640);
+        imageEshop.setX(screenWidth-400); 
+        imageEshop.setY(300);
         imageEshop.setFitHeight(225); 
-        imageEshop.setFitWidth(345);
+        imageEshop.setFitWidth(280);
         imageEshop.setOnMouseClicked(event -> VisitWebpage.eshop());
         
         ImageView imageTimeZones = new ImageView("images/time_zones.png");
         imageTimeZones.setPreserveRatio(true);
-        imageTimeZones.setX((screenWidth/6)*2.5 - 200); 
-        imageTimeZones.setY(520);
-        imageTimeZones.setFitHeight(800); 
+        imageTimeZones.setX((screenWidth/6)*2.5 - 300); 
+        imageTimeZones.setY(300);
+        imageTimeZones.setFitHeight(370); 
         imageTimeZones.setFitWidth(800);
         imageTimeZones.setOnMouseClicked(event -> VisitWebpage.time_zones());
         
         ImageView imageGoogleMaps = new ImageView("images/google_maps.png");
         imageGoogleMaps.setPreserveRatio(true);
         imageGoogleMaps.setX((screenWidth/6)*3 - 200); 
-        imageGoogleMaps.setY(250);
+        imageGoogleMaps.setY(130);
         imageGoogleMaps.setFitHeight(250); 
-        imageGoogleMaps.setFitWidth(250);
+        imageGoogleMaps.setFitWidth(200);
         imageGoogleMaps.setOnMouseClicked(event -> VisitWebpage.google_maps());
         
         ImageView imageLatLong = new ImageView("images/lat_long.png");
         imageLatLong.setPreserveRatio(true);
-        imageLatLong.setX((screenWidth/6)*4 - 220); 
-        imageLatLong.setY(160);
-        imageLatLong.setFitHeight(450); 
+        imageLatLong.setX((screenWidth/6)*4 - 210); 
+        imageLatLong.setY(15);
+        imageLatLong.setFitHeight(225); 
         imageLatLong.setFitWidth(450);
         imageLatLong.setOnMouseClicked(event -> VisitWebpage.google_maps());
                 
@@ -152,67 +134,60 @@ public class Main extends Application {
         lblStatus.setLayoutY(screenHeight-110);
         lblStatus.setVisible(false);
         
-        lblAppName = new Label();
-        lblAppName.setText(AppName);
-        lblAppName.setFont(Font.font("Arial", 20));
-        lblAppName.setLayoutX(5);
-        lblAppName.setLayoutY(5);
-        lblAppName.setVisible(true);
-        
         lblPlayers = new Label();
         lblPlayers.setText("Players");
         lblPlayers.setFont(Font.font("Arial", 30));
         lblPlayers.setLayoutX((screenWidth/6)*1 - 200);
-        lblPlayers.setLayoutY(100);
+        lblPlayers.setLayoutY(15);
         
         lblRadio = new Label();
         lblRadio.setText("Radio");
         lblRadio.setFont(Font.font("Arial", 30));
         lblRadio.setLayoutX((screenWidth/6)*2 - 200);
-        lblRadio.setLayoutY(100);
+        lblRadio.setLayoutY(15);
         
         lblRespawn = new Label();
         lblRespawn.setText("Respawn");
         lblRespawn.setFont(Font.font("Arial", 30));
         lblRespawn.setLayoutX((screenWidth/6)*3 - 200);
-        lblRespawn.setLayoutY(100);
+        lblRespawn.setLayoutY(15);
         
         lblBluetooth = new Label();
         lblBluetooth.setText("Bluetooth");
         lblBluetooth.setFont(Font.font("Arial", 30));
-        lblBluetooth.setLayoutX((screenWidth/6)*5.7 - 200);
-        lblBluetooth.setLayoutY(100);
+        lblBluetooth.setLayoutX((screenWidth/6)*6.1 - 200);
+        lblBluetooth.setLayoutY(15);
         
         lblTimeZone = new Label();
         lblTimeZone.setText("Time Zone");
         lblTimeZone.setFont(Font.font("Arial", 30));
-        lblTimeZone.setLayoutX((screenWidth/6)*3.5 - 200);
-        lblTimeZone.setLayoutY(420);
+        lblTimeZone.setLayoutX((screenWidth/6)*3.5 - 290);
+        lblTimeZone.setLayoutY(240);
         
         lblUserID = new Label();
         lblUserID.setText("User ID");
-        lblUserID.setFont(Font.font("Arial", 24));
+        lblUserID.setFont(Font.font("Arial", 20));
         lblUserID.setLayoutX((screenWidth/6)*1 - 200);
-        lblUserID.setLayoutY(160);
+        lblUserID.setLayoutY(70);
         
         lblLatitude = new Label();
         lblLatitude.setText("Latitude");
-        lblLatitude.setFont(Font.font("Arial", 24));
+        lblLatitude.setFont(Font.font("Arial", 20));
         lblLatitude.setLayoutX((screenWidth/6)*3 - 200);
-        lblLatitude.setLayoutY(160);
+        lblLatitude.setLayoutY(70);
         
         lblLongitude = new Label();
         lblLongitude.setText("Longitude");
-        lblLongitude.setFont(Font.font("Arial", 24));
+        lblLongitude.setFont(Font.font("Arial", 20));
         lblLongitude.setLayoutX((screenWidth/6)*3 - 200);
-        lblLongitude.setLayoutY(200);
+        lblLongitude.setLayoutY(100);
         
         txtLatitude = new TextField();
         txtLatitude.setPromptText("89.123456");
-        txtLatitude.setFont(Font.font("Arial", 16));
-        txtLatitude.setPrefWidth(120);
-        txtLatitude.setLayoutX((screenWidth/6)*3 - 80 );
-        txtLatitude.setLayoutY(160);
+        txtLatitude.setFont(Font.font("Arial", 12));
+        txtLatitude.setPrefWidth(100);
+        txtLatitude.setLayoutX((screenWidth/6)*3 - 100 );
+        txtLatitude.setLayoutY(70);
         txtLatitude.textProperty().addListener((observable, oldValue, newValue) -> {
         	try
         	{
@@ -238,10 +213,10 @@ public class Main extends Application {
         
         txtLongitude = new TextField();
         txtLongitude.setPromptText("-178.123456");
-        txtLongitude.setFont(Font.font("Arial", 16));
-        txtLongitude.setPrefWidth(120);
-        txtLongitude.setLayoutX((screenWidth/6)*3 - 80 );
-        txtLongitude.setLayoutY(200);
+        txtLongitude.setFont(Font.font("Arial", 12));
+        txtLongitude.setPrefWidth(100);
+        txtLongitude.setLayoutX((screenWidth/6)*3 - 100 );
+        txtLongitude.setLayoutY(100);
         txtLongitude.textProperty().addListener((observable, oldValue, newValue) -> {
         	try
         	{
@@ -267,22 +242,22 @@ public class Main extends Application {
         
         lblBluetoothName = new Label();
         lblBluetoothName.setText("Name");
-        lblBluetoothName.setFont(Font.font("Arial", 24));
-        lblBluetoothName.setLayoutX((screenWidth/6)*5.7 - 200);
-        lblBluetoothName.setLayoutY(160);
+        lblBluetoothName.setFont(Font.font("Arial", 20));
+        lblBluetoothName.setLayoutX((screenWidth/6)*6.1 - 200);
+        lblBluetoothName.setLayoutY(70);
         
         lblBluetoothPIN = new Label();
         lblBluetoothPIN.setText("PIN");
-        lblBluetoothPIN.setFont(Font.font("Arial", 24));
-        lblBluetoothPIN.setLayoutX((screenWidth/6)*5.7 - 200);
-        lblBluetoothPIN.setLayoutY(200);        
+        lblBluetoothPIN.setFont(Font.font("Arial", 20));
+        lblBluetoothPIN.setLayoutX((screenWidth/6)*6.1 - 200);
+        lblBluetoothPIN.setLayoutY(100);        
         
         txtBluetoothName = new TextField();
         txtBluetoothName.setPromptText("AIM");
-        txtBluetoothName.setFont(Font.font("Arial", 16));
-        txtBluetoothName.setPrefWidth(120);
-        txtBluetoothName.setLayoutX((screenWidth/6)*5.7 - 120 );
-        txtBluetoothName.setLayoutY(160);
+        txtBluetoothName.setFont(Font.font("Arial", 12));
+        txtBluetoothName.setPrefWidth(100);
+        txtBluetoothName.setLayoutX((screenWidth/6)*6.1 - 140 );
+        txtBluetoothName.setLayoutY(70);
         txtBluetoothName.textProperty().addListener((observable, oldValue, newValue) -> {
         	BluetoothName = newValue.toString();        	
             if(BluetoothName.length()>10)
@@ -294,10 +269,10 @@ public class Main extends Application {
         
         txtBluetoothPIN = new TextField();
         txtBluetoothPIN.setPromptText("1234");
-        txtBluetoothPIN.setFont(Font.font("Arial", 16));
-        txtBluetoothPIN.setPrefWidth(120);
-        txtBluetoothPIN.setLayoutX((screenWidth/6)*5.7 - 120 );
-        txtBluetoothPIN.setLayoutY(200);
+        txtBluetoothPIN.setFont(Font.font("Arial", 12));
+        txtBluetoothPIN.setPrefWidth(100);
+        txtBluetoothPIN.setLayoutX((screenWidth/6)*6.1 - 140 );
+        txtBluetoothPIN.setLayoutY(100);
         txtBluetoothPIN.textProperty().addListener((observable, oldValue, newValue) -> {
         	try
         	{
@@ -326,19 +301,19 @@ public class Main extends Application {
         lblRFpower = new Label();
         lblRFpower.setText("Power: -1dBm (0.79mW)");
         lblRFpower.setLayoutX((screenWidth/6)*2 - 200);
-        lblRFpower.setLayoutY(190);
+        lblRFpower.setLayoutY(90);
         
         lblRFchannel = new Label();
         lblRFchannel.setText("Channel 1 (LPD433 CH1 = 433.075MHz)");
         lblRFchannel.setLayoutX((screenWidth/6)*2 - 200);
-        lblRFchannel.setLayoutY(290);
+        lblRFchannel.setLayoutY(160);
         
         txtUser = new TextField();
         txtUser.setPromptText("a");
         txtUser.setLayoutX((screenWidth/6)*1 - 100);
-        txtUser.setLayoutY(160);
-        txtUser.setPrefWidth(40);
-        txtUser.setFont(Font.font("Arial", 16));
+        txtUser.setLayoutY(70);
+        txtUser.setPrefWidth(30);
+        txtUser.setFont(Font.font("Arial", 12));
         txtUser.textProperty().addListener((observable, oldValue, newValue) -> {
         	userID = newValue.toString().toLowerCase();
             if(userID.length()>1)
@@ -360,16 +335,17 @@ public class Main extends Application {
         	char initPlayerID = (char) ('a' + i);
         	lblPlayerName[i] = new Label();
             lblPlayerName[i].setText("Player " + initPlayerID);
-            lblPlayerName[i].setFont(Font.font("Arial", 24));
+            lblPlayerName[i].setFont(Font.font("Arial", 20));
             lblPlayerName[i].setLayoutX((screenWidth/6)*1 - 200);
-            lblPlayerName[i].setLayoutY( ((screenHeight-250)/20)*i + 200 );
+            lblPlayerName[i].setLayoutY( ((screenHeight-150)/20)*i + 100 );
             
             txtPlayerName[i] = new TextField();
             txtPlayerName[i].setPromptText("Player " + initPlayerID);
-            txtPlayerName[i].setFont(Font.font("Arial", 16));
-            txtPlayerName[i].setPrefWidth(120);
+            txtPlayerName[i].setFont(Font.font("Arial", 12));
+            txtPlayerName[i].setPrefWidth(90);
+            //txtPlayerName[i].setPrefHeight(20);
             txtPlayerName[i].setLayoutX((screenWidth/6)*1 - 100);
-            txtPlayerName[i].setLayoutY( ((screenHeight-250)/20)*i + 200 );
+            txtPlayerName[i].setLayoutY( ((screenHeight-150)/20)*i + 100 );
         }
         
         keyStrikeListeners();
@@ -378,8 +354,8 @@ public class Main extends Application {
         sliderRFpower.setMin(0);
         sliderRFpower.setMax(7);
         sliderRFpower.setLayoutX((screenWidth/6)*2 - 200);
-        sliderRFpower.setLayoutY(160);
-        sliderRFpower.setPrefWidth(250);
+        sliderRFpower.setLayoutY(70);
+        sliderRFpower.setPrefWidth(200);
         sliderRFpower.valueProperty().addListener((obs, oldval, newVal) ->
         {
         	RFpower = (int) Math.round(newVal.doubleValue());
@@ -407,8 +383,8 @@ public class Main extends Application {
         sliderRFchannel.setMin(1);
         sliderRFchannel.setMax(5);
         sliderRFchannel.setLayoutX((screenWidth/6)*2 - 200);
-        sliderRFchannel.setLayoutY(260);
-        sliderRFchannel.setPrefWidth(250);
+        sliderRFchannel.setLayoutY(140);
+        sliderRFchannel.setPrefWidth(200);
         sliderRFchannel.valueProperty().addListener((obs, oldval, newVal) ->
         {
         	RFchannel = (int) Math.round(newVal.doubleValue());
@@ -427,9 +403,9 @@ public class Main extends Application {
         sliderRFchannel.setOnMouseReleased(event -> FileManagementForAIM.writeToFile("RF_ch.txt", Integer.toString(RFchannel)));
         
         txtCode = new TextField();
-        txtCode.setLayoutX((screenWidth/6)*2 - 50);
-        txtCode.setLayoutY(350);
-        txtCode.setPrefWidth(100);
+        txtCode.setLayoutX((screenWidth/6)*2 - 80);
+        txtCode.setLayoutY(200);
+        txtCode.setPrefWidth(80);
         txtCode.setPromptText("4 characters");
         txtCode.textProperty().addListener((observable, oldValue, newValue) -> {
         	code = newValue.toString();
@@ -442,21 +418,22 @@ public class Main extends Application {
         
         lblCode = new Label();
         lblCode.setText("Team Code");
-        lblCode.setFont(Font.font("Arial", 24));
+        lblCode.setFont(Font.font("Arial", 20));
         lblCode.setLayoutX((screenWidth/6)*2 - 200);
-        lblCode.setLayoutY(350);
+        lblCode.setLayoutY(200);
         
         lblUTC = new Label();
         lblUTC.setText("UTC = 0");
-        lblUTC.setLayoutX((screenWidth/6)*2.5 + 150);
-        lblUTC.setLayoutY(500);
+        lblUTC.setFont(Font.font("Arial", 20));
+        lblUTC.setLayoutX((screenWidth/6)*2.5 - 25);
+        lblUTC.setLayoutY(300);
         
         sliderUTC = new Slider();
         sliderUTC.setMin(-12);
         sliderUTC.setMax(14);
-        sliderUTC.setLayoutX((screenWidth/6)*2.5 - 200);
-        sliderUTC.setLayoutY(470);
-        sliderUTC.setPrefWidth(800);
+        sliderUTC.setLayoutX((screenWidth/6)*2.5 - 310);
+        sliderUTC.setLayoutY(280);
+        sliderUTC.setPrefWidth(660);
         sliderUTC.valueProperty().addListener((obs, oldval, newVal) ->
         {
         	UTC = (int) Math.round(newVal.doubleValue());
@@ -468,13 +445,13 @@ public class Main extends Application {
         lblDisplay = new Label();
         lblDisplay.setText("Display");
         lblDisplay.setFont(Font.font("Arial", 30));
-        lblDisplay.setLayoutX((screenWidth/6)*5.7 - 200);
-        lblDisplay.setLayoutY(300);
+        lblDisplay.setLayoutX((screenWidth/6)*6.1 - 200);
+        lblDisplay.setLayoutY(150);
         
         cbAltitude = new CheckBox();
         cbAltitude.setText("Altitude of players");
-        cbAltitude.setLayoutX((screenWidth/6)*5.7 - 200);
-        cbAltitude.setLayoutY(350);
+        cbAltitude.setLayoutX((screenWidth/6)*6.1 - 200);
+        cbAltitude.setLayoutY(190);
         cbAltitude.setSelected(true);
         cbAltitude.setOnAction(event -> {  
         	if(cbAltitude.isSelected())
@@ -491,8 +468,8 @@ public class Main extends Application {
         
         cbDistance = new CheckBox();
         cbDistance.setText("Distance of players");
-        cbDistance.setLayoutX((screenWidth/6)*5.7 - 200);
-        cbDistance.setLayoutY(370);
+        cbDistance.setLayoutX((screenWidth/6)*6.1 - 200);
+        cbDistance.setLayoutY(215);
         cbDistance.setSelected(true);
         cbDistance.setOnAction(event -> {  
         	if(cbDistance.isSelected())
@@ -509,8 +486,8 @@ public class Main extends Application {
         
         cbDeadPlayer = new CheckBox();
         cbDeadPlayer.setText("Dead players");
-        cbDeadPlayer.setLayoutX((screenWidth/6)*5.7 - 200);
-        cbDeadPlayer.setLayoutY(390);
+        cbDeadPlayer.setLayoutX((screenWidth/6)*6.1 - 200);
+        cbDeadPlayer.setLayoutY(240);
         cbDeadPlayer.setSelected(true);
         cbDeadPlayer.setOnAction(event -> {  
         	if(cbDeadPlayer.isSelected())
@@ -526,54 +503,52 @@ public class Main extends Application {
         });
         
         //create layout and add objects
-        Pane layout = new Pane();
-        layout.getChildren().add(imageEshop);
-        layout.getChildren().add(imageFacebook);
-        layout.getChildren().add(imageYoutube);
-        layout.getChildren().add(imageTimeZones);
-        layout.getChildren().add(imageGoogleMaps);
-        layout.getChildren().add(imageLatLong);
-        layout.getChildren().add(btnExit);
-        layout.getChildren().add(pi);
-        layout.getChildren().add(lblStatus);
-        layout.getChildren().add(lblAppName);
-        layout.getChildren().add(lblPlayers);
-        layout.getChildren().add(lblRadio);
-        layout.getChildren().add(lblRespawn);
-        layout.getChildren().add(lblBluetooth);
-        layout.getChildren().add(lblUserID);
-        layout.getChildren().add(lblRFpower);
-        layout.getChildren().add(lblRFchannel);
-        layout.getChildren().add(lblCode);
-        layout.getChildren().add(lblUTC);
-        layout.getChildren().add(lblTimeZone);
-        layout.getChildren().add(lblLatitude);
-        layout.getChildren().add(lblLongitude);
-        layout.getChildren().add(lblBluetoothName);
-        layout.getChildren().add(lblBluetoothPIN);
-        layout.getChildren().add(lblDisplay);
-        layout.getChildren().add(txtBluetoothName);
-        layout.getChildren().add(txtBluetoothPIN);
-        layout.getChildren().add(txtLatitude);
-        layout.getChildren().add(txtLongitude);
-        layout.getChildren().add(txtUser);
-        layout.getChildren().add(txtCode);
-        layout.getChildren().add(sliderRFpower);
-        layout.getChildren().add(sliderRFchannel);
-        layout.getChildren().add(sliderUTC);
-        layout.getChildren().add(cbAltitude);
-        layout.getChildren().add(cbDistance);
-        layout.getChildren().add(cbDeadPlayer);
+        Pane pane = new Pane();
+        pane.getChildren().add(imageEshop);
+        pane.getChildren().add(imageFacebook);
+        pane.getChildren().add(imageYoutube);
+        pane.getChildren().add(imageTimeZones);
+        pane.getChildren().add(imageGoogleMaps);
+        pane.getChildren().add(imageLatLong);        
+        pane.getChildren().add(pi);
+        pane.getChildren().add(lblStatus);        
+        pane.getChildren().add(lblPlayers);
+        pane.getChildren().add(lblRadio);
+        pane.getChildren().add(lblRespawn);
+        pane.getChildren().add(lblBluetooth);
+        pane.getChildren().add(lblUserID);
+        pane.getChildren().add(lblRFpower);
+        pane.getChildren().add(lblRFchannel);
+        pane.getChildren().add(lblCode);
+        pane.getChildren().add(lblUTC);
+        pane.getChildren().add(lblTimeZone);
+        pane.getChildren().add(lblLatitude);
+        pane.getChildren().add(lblLongitude);
+        pane.getChildren().add(lblBluetoothName);
+        pane.getChildren().add(lblBluetoothPIN);
+        pane.getChildren().add(lblDisplay);
+        pane.getChildren().add(txtBluetoothName);
+        pane.getChildren().add(txtBluetoothPIN);
+        pane.getChildren().add(txtLatitude);
+        pane.getChildren().add(txtLongitude);
+        pane.getChildren().add(txtUser);
+        pane.getChildren().add(txtCode);
+        pane.getChildren().add(sliderRFpower);
+        pane.getChildren().add(sliderRFchannel);
+        pane.getChildren().add(sliderUTC);
+        pane.getChildren().add(cbAltitude);
+        pane.getChildren().add(cbDistance);
+        pane.getChildren().add(cbDeadPlayer);
         for(int i=0; i<20; i++)
         {
-        	layout.getChildren().add(lblPlayerName[i]);
-        	layout.getChildren().add(txtPlayerName[i]);
+        	pane.getChildren().add(lblPlayerName[i]);
+        	pane.getChildren().add(txtPlayerName[i]);
         }
 
-        Scene scene = new Scene(layout, screenWidth, screenHeight-50);        
+        Scene scene = new Scene(pane, screenWidth, screenHeight-50);        
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.DECORATED);
 
         primaryStage.show();
         
@@ -748,7 +723,7 @@ public class Main extends Application {
         	PlayerName[0] = newValue.toString();        	
             if(PlayerName[0].length()>10)
             	PlayerName[0] = PlayerName[0].substring(0, 10);
-            if(PlayerName[0].length()>0 && !FileManagementForAIM.readORcreateFile("player_a.txt").equals(PlayerName[0]))
+            if(!FileManagementForAIM.readORcreateFile("player_a.txt").equals(PlayerName[0]))
             	FileManagementForAIM.writeToFile("player_a.txt", PlayerName[0]);
             txtPlayerName[0].setText(PlayerName[0]);
         });
@@ -757,7 +732,7 @@ public class Main extends Application {
         	PlayerName[1] = newValue.toString();        	
             if(PlayerName[1].length()>10)
             	PlayerName[1] = PlayerName[1].substring(0, 10);
-            if(PlayerName[1].length()>0 && !FileManagementForAIM.readORcreateFile("player_b.txt").equals(PlayerName[1]))
+            if(!FileManagementForAIM.readORcreateFile("player_b.txt").equals(PlayerName[1]))
             	FileManagementForAIM.writeToFile("player_b.txt", PlayerName[1]);
             txtPlayerName[1].setText(PlayerName[1]);
         });
@@ -766,7 +741,7 @@ public class Main extends Application {
         	PlayerName[2] = newValue.toString();        	
             if(PlayerName[2].length()>10)
             	PlayerName[2] = PlayerName[2].substring(0, 10);
-            if(PlayerName[2].length()>0 && !FileManagementForAIM.readORcreateFile("player_c.txt").equals(PlayerName[2]))
+            if(!FileManagementForAIM.readORcreateFile("player_c.txt").equals(PlayerName[2]))
             	FileManagementForAIM.writeToFile("player_c.txt", PlayerName[2]);
             txtPlayerName[2].setText(PlayerName[2]);
         });
@@ -775,7 +750,7 @@ public class Main extends Application {
         	PlayerName[3] = newValue.toString();        	
             if(PlayerName[3].length()>10)
             	PlayerName[3] = PlayerName[3].substring(0, 10);
-            if(PlayerName[3].length()>0 && !FileManagementForAIM.readORcreateFile("player_d.txt").equals(PlayerName[3]))
+            if(!FileManagementForAIM.readORcreateFile("player_d.txt").equals(PlayerName[3]))
             	FileManagementForAIM.writeToFile("player_d.txt", PlayerName[3]);
             txtPlayerName[3].setText(PlayerName[3]);
         });
@@ -784,7 +759,7 @@ public class Main extends Application {
         	PlayerName[4] = newValue.toString();        	
             if(PlayerName[4].length()>10)
             	PlayerName[4] = PlayerName[4].substring(0, 10);
-            if(PlayerName[4].length()>0 && !FileManagementForAIM.readORcreateFile("player_e.txt").equals(PlayerName[4]))
+            if(!FileManagementForAIM.readORcreateFile("player_e.txt").equals(PlayerName[4]))
             	FileManagementForAIM.writeToFile("player_e.txt", PlayerName[4]);
             txtPlayerName[4].setText(PlayerName[4]);
         });
@@ -793,7 +768,7 @@ public class Main extends Application {
         	PlayerName[5] = newValue.toString();        	
             if(PlayerName[5].length()>10)
             	PlayerName[5] = PlayerName[5].substring(0, 10);
-            if(PlayerName[5].length()>0 && !FileManagementForAIM.readORcreateFile("player_f.txt").equals(PlayerName[5]))
+            if(!FileManagementForAIM.readORcreateFile("player_f.txt").equals(PlayerName[5]))
             	FileManagementForAIM.writeToFile("player_f.txt", PlayerName[5]);
             txtPlayerName[5].setText(PlayerName[5]);
         });
@@ -802,7 +777,7 @@ public class Main extends Application {
         	PlayerName[6] = newValue.toString();        	
             if(PlayerName[6].length()>10)
             	PlayerName[6] = PlayerName[6].substring(0, 10);
-            if(PlayerName[6].length()>0 && !FileManagementForAIM.readORcreateFile("player_g.txt").equals(PlayerName[6]))
+            if(!FileManagementForAIM.readORcreateFile("player_g.txt").equals(PlayerName[6]))
             	FileManagementForAIM.writeToFile("player_g.txt", PlayerName[6]);
             txtPlayerName[6].setText(PlayerName[6]);
         });
@@ -811,7 +786,7 @@ public class Main extends Application {
         	PlayerName[7] = newValue.toString();        	
             if(PlayerName[7].length()>10)
             	PlayerName[7] = PlayerName[7].substring(0, 10);
-            if(PlayerName[7].length()>0 && !FileManagementForAIM.readORcreateFile("player_h.txt").equals(PlayerName[7]))
+            if(!FileManagementForAIM.readORcreateFile("player_h.txt").equals(PlayerName[7]))
             	FileManagementForAIM.writeToFile("player_h.txt", PlayerName[7]);
             txtPlayerName[7].setText(PlayerName[7]);
         });
@@ -820,7 +795,7 @@ public class Main extends Application {
         	PlayerName[8] = newValue.toString();        	
             if(PlayerName[8].length()>10)
             	PlayerName[8] = PlayerName[8].substring(0, 10);
-            if(PlayerName[8].length()>0 && !FileManagementForAIM.readORcreateFile("player_i.txt").equals(PlayerName[8]))
+            if(!FileManagementForAIM.readORcreateFile("player_i.txt").equals(PlayerName[8]))
             	FileManagementForAIM.writeToFile("player_i.txt", PlayerName[8]);
             txtPlayerName[8].setText(PlayerName[8]);
         });
@@ -829,7 +804,7 @@ public class Main extends Application {
         	PlayerName[9] = newValue.toString();        	
             if(PlayerName[9].length()>10)
             	PlayerName[9] = PlayerName[9].substring(0, 10);
-            if(PlayerName[9].length()>0 && !FileManagementForAIM.readORcreateFile("player_j.txt").equals(PlayerName[9]))
+            if(!FileManagementForAIM.readORcreateFile("player_j.txt").equals(PlayerName[9]))
             	FileManagementForAIM.writeToFile("player_j.txt", PlayerName[9]);
             txtPlayerName[9].setText(PlayerName[9]);
         });
@@ -838,7 +813,7 @@ public class Main extends Application {
         	PlayerName[10] = newValue.toString();        	
             if(PlayerName[10].length()>10)
             	PlayerName[10] = PlayerName[10].substring(0, 10);
-            if(PlayerName[10].length()>0 && !FileManagementForAIM.readORcreateFile("player_k.txt").equals(PlayerName[10]))
+            if(!FileManagementForAIM.readORcreateFile("player_k.txt").equals(PlayerName[10]))
             	FileManagementForAIM.writeToFile("player_k.txt", PlayerName[10]);
             txtPlayerName[10].setText(PlayerName[10]);
         });
@@ -847,7 +822,7 @@ public class Main extends Application {
         	PlayerName[11] = newValue.toString();        	
             if(PlayerName[11].length()>10)
             	PlayerName[11] = PlayerName[11].substring(0, 10);
-            if(PlayerName[11].length()>0 && !FileManagementForAIM.readORcreateFile("player_l.txt").equals(PlayerName[11]))
+            if(!FileManagementForAIM.readORcreateFile("player_l.txt").equals(PlayerName[11]))
             	FileManagementForAIM.writeToFile("player_l.txt", PlayerName[11]);
             txtPlayerName[11].setText(PlayerName[11]);
         });
@@ -856,7 +831,7 @@ public class Main extends Application {
         	PlayerName[12] = newValue.toString();        	
             if(PlayerName[12].length()>10)
             	PlayerName[12] = PlayerName[12].substring(0, 10);
-            if(PlayerName[12].length()>0 && !FileManagementForAIM.readORcreateFile("player_m.txt").equals(PlayerName[12]))
+            if(!FileManagementForAIM.readORcreateFile("player_m.txt").equals(PlayerName[12]))
             	FileManagementForAIM.writeToFile("player_m.txt", PlayerName[12]);
             txtPlayerName[12].setText(PlayerName[12]);
         });
@@ -865,7 +840,7 @@ public class Main extends Application {
         	PlayerName[13] = newValue.toString();        	
             if(PlayerName[13].length()>10)
             	PlayerName[13] = PlayerName[13].substring(0, 10);
-            if(PlayerName[13].length()>0 && !FileManagementForAIM.readORcreateFile("player_n.txt").equals(PlayerName[13]))
+            if(!FileManagementForAIM.readORcreateFile("player_n.txt").equals(PlayerName[13]))
             	FileManagementForAIM.writeToFile("player_n.txt", PlayerName[13]);
             txtPlayerName[13].setText(PlayerName[13]);
         });
@@ -874,7 +849,7 @@ public class Main extends Application {
         	PlayerName[14] = newValue.toString();        	
             if(PlayerName[14].length()>10)
             	PlayerName[14] = PlayerName[14].substring(0, 10);
-            if(PlayerName[14].length()>0 && !FileManagementForAIM.readORcreateFile("player_o.txt").equals(PlayerName[14]))
+            if(!FileManagementForAIM.readORcreateFile("player_o.txt").equals(PlayerName[14]))
             	FileManagementForAIM.writeToFile("player_o.txt", PlayerName[14]);
             txtPlayerName[14].setText(PlayerName[14]);
         });
@@ -883,7 +858,7 @@ public class Main extends Application {
         	PlayerName[15] = newValue.toString();        	
             if(PlayerName[15].length()>10)
             	PlayerName[15] = PlayerName[15].substring(0, 10);
-            if(PlayerName[15].length()>0 && !FileManagementForAIM.readORcreateFile("player_p.txt").equals(PlayerName[15]))
+            if(!FileManagementForAIM.readORcreateFile("player_p.txt").equals(PlayerName[15]))
             	FileManagementForAIM.writeToFile("player_p.txt", PlayerName[15]);
             txtPlayerName[15].setText(PlayerName[15]);
         });
@@ -892,7 +867,7 @@ public class Main extends Application {
         	PlayerName[16] = newValue.toString();        	
             if(PlayerName[16].length()>10)
             	PlayerName[16] = PlayerName[16].substring(0, 10);
-            if(PlayerName[16].length()>0 && !FileManagementForAIM.readORcreateFile("player_q.txt").equals(PlayerName[16]))
+            if(!FileManagementForAIM.readORcreateFile("player_q.txt").equals(PlayerName[16]))
             	FileManagementForAIM.writeToFile("player_q.txt", PlayerName[16]);
             txtPlayerName[16].setText(PlayerName[16]);
         });
@@ -901,7 +876,7 @@ public class Main extends Application {
         	PlayerName[17] = newValue.toString();        	
             if(PlayerName[17].length()>10)
             	PlayerName[17] = PlayerName[17].substring(0, 10);
-            if(PlayerName[17].length()>0 && !FileManagementForAIM.readORcreateFile("player_r.txt").equals(PlayerName[17]))
+            if(!FileManagementForAIM.readORcreateFile("player_r.txt").equals(PlayerName[17]))
             	FileManagementForAIM.writeToFile("player_r.txt", PlayerName[17]);
             txtPlayerName[17].setText(PlayerName[17]);
         });
@@ -910,7 +885,7 @@ public class Main extends Application {
         	PlayerName[18] = newValue.toString();        	
             if(PlayerName[18].length()>10)
             	PlayerName[18] = PlayerName[18].substring(0, 10);
-            if(PlayerName[18].length()>0 && !FileManagementForAIM.readORcreateFile("player_s.txt").equals(PlayerName[18]))
+            if(!FileManagementForAIM.readORcreateFile("player_s.txt").equals(PlayerName[18]))
             	FileManagementForAIM.writeToFile("player_s.txt", PlayerName[18]);
             txtPlayerName[18].setText(PlayerName[18]);
         });
@@ -919,7 +894,7 @@ public class Main extends Application {
         	PlayerName[19] = newValue.toString();        	
             if(PlayerName[19].length()>10)
             	PlayerName[19] = PlayerName[19].substring(0, 10);
-            if(PlayerName[19].length()>0 && !FileManagementForAIM.readORcreateFile("player_t.txt").equals(PlayerName[19]))
+            if(!FileManagementForAIM.readORcreateFile("player_t.txt").equals(PlayerName[19]))
             	FileManagementForAIM.writeToFile("player_t.txt", PlayerName[19]);
             txtPlayerName[19].setText(PlayerName[19]);
         });

@@ -23,9 +23,9 @@ public class FileManagementForAIM {
 			BufferedReader reader = new BufferedReader(new FileReader(filename));
 			String data;
 			data = reader.readLine();	    
-			reader.close();
+			reader.close();			
 			System.out.println("Reading successful.");
-			
+					
 			if(data==null && filename.equals("altitude.dat"))
 			{
 				data="250";
@@ -111,7 +111,11 @@ public class FileManagementForAIM {
 				data="202";
 				writeToFile(filename, data);
 			}
-				
+			
+			String[] data_split = data.split("\0");
+			
+			data = data_split[0];
+							
 			return data;
 	  }
 	  catch (Exception e)

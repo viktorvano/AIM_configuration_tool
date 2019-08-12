@@ -57,6 +57,19 @@ public class VisitWebpage {
     	}
     }
     
+    public static void google_maps_KML()
+    {
+    	try
+    	{
+    		  Desktop desktop = java.awt.Desktop.getDesktop();
+    		  URI oURL = new URI("https://www.google.sk/maps/d/");
+    		  desktop.browse(oURL);
+    	} catch (Exception e)
+    	{
+    		  e.printStackTrace();
+    	}
+    }
+    
     public static void time_zones()
     {
     	try

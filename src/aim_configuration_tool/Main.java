@@ -49,7 +49,7 @@ public class Main extends Application {
     private CheckBox cbDistance;
     private CheckBox cbDeadPlayer;
     
-    private final String AppName="AIM configuration tool 1.0";
+    private final String AppName="AIM configuration tool 1.1";
     private int RFpower=0;
     private int RFchannel=1;
     private int UTC=0;
@@ -122,6 +122,14 @@ public class Main extends Application {
         imageLatLong.setFitHeight(225); 
         imageLatLong.setFitWidth(450);
         imageLatLong.setOnMouseClicked(event -> VisitWebpage.google_maps());
+        
+        ImageView imageGoogleMapsKML = new ImageView("images/google_maps_KML.png");
+        imageGoogleMapsKML.setPreserveRatio(true);
+        imageGoogleMapsKML.setX((screenWidth/6)*5 - 170); 
+        imageGoogleMapsKML.setY(500);
+        imageGoogleMapsKML.setFitHeight(250); 
+        imageGoogleMapsKML.setFitWidth(200);
+        imageGoogleMapsKML.setOnMouseClicked(event -> VisitWebpage.google_maps_KML());
                 
         pi = new ProgressIndicator(0.0);
         pi.setLayoutX(screenWidth-50);
@@ -509,7 +517,8 @@ public class Main extends Application {
         pane.getChildren().add(imageYoutube);
         pane.getChildren().add(imageTimeZones);
         pane.getChildren().add(imageGoogleMaps);
-        pane.getChildren().add(imageLatLong);        
+        pane.getChildren().add(imageLatLong);
+        pane.getChildren().add(imageGoogleMapsKML);
         pane.getChildren().add(pi);
         pane.getChildren().add(lblStatus);        
         pane.getChildren().add(lblPlayers);
@@ -549,6 +558,10 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.DECORATED);
+        primaryStage.setMinHeight(screenHeight);
+        primaryStage.setMaxHeight(screenHeight);        
+        primaryStage.setMinWidth(screenWidth);
+        primaryStage.setMaxWidth(screenWidth);
 
         primaryStage.show();
         
@@ -714,7 +727,7 @@ public class Main extends Application {
     	pi.setProgress(prog+=delta);
     	FileManagementForAIM.readORcreateFile("z_m_rng.dat");    	
     	pi.setProgress(prog+=delta);
-    	
+    	FileManagementForAIM.readORcreateFile("Import KML.url");
     }
 
     private void keyStrikeListeners()

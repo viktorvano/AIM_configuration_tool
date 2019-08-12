@@ -110,6 +110,10 @@ public class FileManagementForAIM {
 			{
 				data="202";
 				writeToFile(filename, data);
+			}else if(data==null && filename.equals("Import KML.url"))
+			{
+				data="[InternetShortcut]\r\nURL=https://www.google.sk/maps/d/\r\n";
+				writeToFile(filename, data);
 			}
 			
 			String[] data_split = data.split("\0");

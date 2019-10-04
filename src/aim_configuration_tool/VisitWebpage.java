@@ -57,6 +57,19 @@ public class VisitWebpage {
     	}
     }
     
+    public static void lat_long()
+    {
+    	try
+    	{
+    		  Desktop desktop = java.awt.Desktop.getDesktop();
+    		  URI oURL = new URI("https://www.latlong.net/");
+    		  desktop.browse(oURL);
+    	} catch (Exception e)
+    	{
+    		  e.printStackTrace();
+    	}
+    }
+    
     public static void google_maps_KML()
     {
     	try

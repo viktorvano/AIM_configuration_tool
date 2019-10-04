@@ -49,7 +49,7 @@ public class Main extends Application {
     private CheckBox cbDistance;
     private CheckBox cbDeadPlayer;
     
-    private final String AppName="AIM configuration tool 1.1";
+    private final String AppName="AIM configuration tool 1.2";
     private int RFpower=0;
     private int RFchannel=1;
     private int UTC=0;
@@ -77,7 +77,7 @@ public class Main extends Application {
                 
         ImageView imageFacebook = new ImageView("images/facebook.png");
         imageFacebook.setPreserveRatio(true);
-        imageFacebook.setX(screenWidth-105); 
+        imageFacebook.setX(screenWidth-110); 
         imageFacebook.setY(300);
         imageFacebook.setFitHeight(100); 
         imageFacebook.setFitWidth(100);
@@ -85,7 +85,7 @@ public class Main extends Application {
         
         ImageView imageYoutube = new ImageView("images/youtube.png");
         imageYoutube.setPreserveRatio(true);
-        imageYoutube.setX(screenWidth-105); 
+        imageYoutube.setX(screenWidth-110); 
         imageYoutube.setY(420);
         imageYoutube.setFitHeight(100); 
         imageYoutube.setFitWidth(100);
@@ -121,7 +121,7 @@ public class Main extends Application {
         imageLatLong.setY(15);
         imageLatLong.setFitHeight(225); 
         imageLatLong.setFitWidth(450);
-        imageLatLong.setOnMouseClicked(event -> VisitWebpage.google_maps());
+        imageLatLong.setOnMouseClicked(event -> VisitWebpage.lat_long());
         
         ImageView imageGoogleMapsKML = new ImageView("images/google_maps_KML.png");
         imageGoogleMapsKML.setPreserveRatio(true);
@@ -398,15 +398,15 @@ public class Main extends Application {
         	RFchannel = (int) Math.round(newVal.doubleValue());
         	sliderRFchannel.setValue((double)RFchannel);
         	if(RFchannel==1)
-        		lblRFchannel.setText("Channel 1 (LPD433 CH1 = 433.075MHz)");
+        		lblRFchannel.setText("LPD433 CH1 = 433.075MHz");
         	else if(RFchannel==2)
-        		lblRFchannel.setText("Channel 2 (LPD433 CH3 = 433.125MHz)");
+        		lblRFchannel.setText("LPD433 CH3 = 433.125MHz");
         	else if(RFchannel==3)
-        		lblRFchannel.setText("Channel 3 (LPD433 CH5 = 433.175MHz)");
+        		lblRFchannel.setText("LPD433 CH5 = 433.175MHz");
         	else if(RFchannel==4)
-        		lblRFchannel.setText("Channel 4 (LPD433 CH7 = 433.225MHz)");
+        		lblRFchannel.setText("LPD433 CH7 = 433.225MHz");
         	else if(RFchannel==5)
-        		lblRFchannel.setText("Channel 5 (LPD433 CH9 = 433.275MHz)");        	
+        		lblRFchannel.setText("LPD433 CH9 = 433.275MHz");        	
         });
         sliderRFchannel.setOnMouseReleased(event -> FileManagementForAIM.writeToFile("RF_ch.txt", Integer.toString(RFchannel)));
         
